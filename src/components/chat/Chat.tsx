@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./chat.css";
 import EmojiPicker from "emoji-picker-react";
 function Chat() {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
+
+  const endRef = useRef<any>(null);
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   console.log(text);
 
@@ -43,10 +49,10 @@ function Chat() {
         </div>
         <div className="message own">
           <div className="texts">
-          <img
-            src="https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/432738296_3801507353412855_1940033459778751965_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGHCjhbum31eVbHokSv3ATWnLcOmJSeZzuctw6YlJ5nOxTZPnMJPscC1Mg4L1_Z3QMk8oPk3S6Az424HXILB7Ke&_nc_ohc=GH8wrZ_sJzYQ7kNvgFrEJyW&_nc_ht=scontent.fhan5-2.fna&oh=00_AYA0b5mEGccx_MHYSwnkgMMWMt9wAri83w6SJFuPoSw6nw&oe=66806E29"
-            alt=""
-          />
+            <img
+              src="https://scontent.fhan5-2.fna.fbcdn.net/v/t39.30808-6/432738296_3801507353412855_1940033459778751965_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGHCjhbum31eVbHokSv3ATWnLcOmJSeZzuctw6YlJ5nOxTZPnMJPscC1Mg4L1_Z3QMk8oPk3S6Az424HXILB7Ke&_nc_ohc=GH8wrZ_sJzYQ7kNvgFrEJyW&_nc_ht=scontent.fhan5-2.fna&oh=00_AYA0b5mEGccx_MHYSwnkgMMWMt9wAri83w6SJFuPoSw6nw&oe=66806E29"
+              alt=""
+            />
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui saepe
               atque dolorum amet magni, cumque iusto blanditiis accusamus,
@@ -91,6 +97,7 @@ function Chat() {
             <span>1 min ago</span>
           </div>
         </div>
+        <div ref={endRef}></div>
       </div>
       <div className="bottom">
         <div className="icons">
