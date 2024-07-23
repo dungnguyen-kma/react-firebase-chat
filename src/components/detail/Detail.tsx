@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./detail.css";
+import { auth } from "../../lib/firebase";
 function Detail() {
   return (
     <div className="detail">
@@ -35,7 +36,7 @@ function Detail() {
                 />
                 <span>photo_2024_2.png</span>
               </div>
-              <img src="/download.png" alt=""  className="icon"/>
+              <img src="/download.png" alt="" className="icon" />
             </div>
             <div className="photoItem">
               <div className="photoDetail">
@@ -45,7 +46,7 @@ function Detail() {
                 />
                 <span>photo_2024_2.png</span>
               </div>
-              <img src="/download.png" alt=""  className="icon"/>
+              <img src="/download.png" alt="" className="icon" />
             </div>
             <div className="photoItem">
               <div className="photoDetail">
@@ -55,7 +56,7 @@ function Detail() {
                 />
                 <span>photo_2024_2.png</span>
               </div>
-              <img src="/download.png" alt=""  className="icon"/>
+              <img src="/download.png" alt="" className="icon" />
             </div>
             <div className="photoItem">
               <div className="photoDetail">
@@ -65,7 +66,7 @@ function Detail() {
                 />
                 <span>photo_2024_2.png</span>
               </div>
-              <img src="/download.png" alt=""  className="icon"/>
+              <img src="/download.png" alt="" className="icon" />
             </div>
           </div>
         </div>
@@ -76,7 +77,9 @@ function Detail() {
           </div>
         </div>
         <button>Block user</button>
-        <button className="logout">Logout</button>
+        <button className="logout" onClick={() => auth.signOut()}>
+          Logout
+        </button>
       </div>
     </div>
   );
