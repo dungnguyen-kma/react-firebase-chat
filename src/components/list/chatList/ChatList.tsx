@@ -48,13 +48,15 @@ function ChatList() {
         />
       </div>
       {chats.map((chat) => {
-        <div className="item" key={chat.chatId}>
-          <img src="/avatar.png" alt="" />
-          <div className="texts">
-            <span>Jane Doe</span>
-            <p>{chat.lastMessage}</p>
+        return (
+          <div className="item" key={chat.chatId}>
+            <img src={chat.user.avatar || "/avatar.png"} alt="" />
+            <div className="texts">
+              <span>{chat.user.username}</span>
+              <p>{chat.lastMessage}</p>
+            </div>
           </div>
-        </div>;
+        );
       })}
 
       {addMode && <AddUser />}
